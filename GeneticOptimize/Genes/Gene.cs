@@ -17,29 +17,35 @@ namespace GeneticOptimize {
             this.Codons = gene.Codons;
         }
 
-        public virtual void Mutate(Random random, double mutate_rate = 0.1) { 
-            for(int i = 0; i < Codons.Length; i++) { 
+        public Codon this[int index] {
+            set {
+                Codons[index] = value;
+            }
+            get {
+                return Codons[index];
+            }
+        }
+
+        public void Mutate(Random random, double mutate_rate = 0.1) { 
+            for(int i = 0; i < Length; i++) { 
                 if(random.NextBool(mutate_rate)) { 
                     Codons[i].Mutate(random);
                 }
             }
         }
 
-        internal static Codon[] Crossover(Random random, Gene<Codon> gene1, Gene<Codon> gene2) { 
+        public void Crossover(Random random, Gene<Codon> gene1, Gene<Codon> gene2) { 
             if(gene1.Length != gene2.Length) { 
-                throw new ArgumentException(nameof(Length));
+                throw new ArgumentException("Length");
             }
 
             int length = gene1.Length;
 
-            Codon[] codons = new Codon[length];
             bool[] bs = random.NextBools(length).ToArray();
 
             for(int i = 0; i < length; i++) { 
-                codons[i] = bs[i] ? gene1.Codons[i] : gene2.Codons[i];
+                Codons[i] = bs[i] ? gene1[i] : gene2[i];
             }
-
-            return codons;
         }
 
         public override string ToString() {

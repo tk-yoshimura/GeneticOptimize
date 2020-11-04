@@ -3,6 +3,8 @@ using GeneticOptimize;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace GeneticOptimizeTest {
     [TestClass]
@@ -51,6 +53,21 @@ namespace GeneticOptimizeTest {
 
             for(int i = 0; i < 10; i++) { 
                 Console.WriteLine(random.NextRange(0.1, 0.5));
+            }
+        }
+
+        [TestMethod]
+        public void ChoiceTest() {
+            Random random = new Random();
+
+            IEnumerable<int> xs = new int[] { 1, 2, 3, 4 };
+
+            for(int i = 0; i < 10; i++) { 
+                Console.WriteLine(random.Choice(xs));
+            }
+
+            for(int i = 0; i < 10; i++) { 
+                Console.WriteLine(random.Choice( new int[] { 5, 6, 7, 8 }));
             }
         }
     }

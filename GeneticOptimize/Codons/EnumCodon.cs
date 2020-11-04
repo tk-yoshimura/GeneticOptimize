@@ -14,7 +14,7 @@ namespace GeneticOptimize {
 
         /// <summary>コンストラクタ</summary>
         public EnumCodon(Random random) { 
-            Code = Values[random.Next(Values.Length)];
+            Code = random.Choice(Values);
         }
 
         /// <summary>コンストラクタ</summary>
@@ -29,7 +29,7 @@ namespace GeneticOptimize {
 
         /// <summary>変異</summary>
         public void Mutate(Random random) {
-            Code = Values[random.Next(Values.Length)];
+            Code = random.Choice(Values);
         }
 
         /// <summary>文字列化</summary>

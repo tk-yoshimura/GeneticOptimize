@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -33,5 +34,14 @@ namespace GeneticOptimize {
         public static double NextRange(this Random random, double min, double max) {
             return min + random.NextDouble() * (max - min);
         }
+
+        public static T Choice<T>(this Random random, IEnumerable<T> collection) {
+            return collection.Skip(random.Next(collection.Count())).First();
+        }
+
+        public static T Choice<T>(this Random random, T[] collection) {
+            return collection[random.Next(collection.Count())];
+        }
+
     }
 }
