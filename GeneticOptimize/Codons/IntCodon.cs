@@ -8,28 +8,24 @@ namespace GeneticOptimize {
         /// <summary>コード</summary>
         public int Code { private set; get; }
 
-        /// <summary>コード最小値</summary>
-        public int Min { private set; get; }
-
-        /// <summary>コード最大値</summary>
-        public int Max { private set; get; }
+        /// <summary>コード数</summary>
+        public int Indexes { private set; get; }
 
         /// <summary>コンストラクタ</summary>
-        public IntCodon(Random random, int min, int max)
-            : this(random.Next(min, max + 1), min, max) { }
+        public IntCodon(Random random, int indexes)
+            : this(random.Next(indexes), indexes) { }
     
         /// <summary>コンストラクタ</summary>
-        public IntCodon(int code, int min, int max) { 
-            if(!(min < max)) { 
-                throw new ArgumentException($"{nameof(min)}, {nameof(max)}");
+        public IntCodon(int code, int indexes) {
+            if (indexes < 1) { 
+                throw new ArgumentException(nameof(indexes));
             }
-            if(code < min || max < code) { 
+            if(code >= indexes) { 
                 throw new ArgumentException(nameof(code));
             }
 
             this.Code = code;
-            this.Min = min;
-            this.Max = max;
+            this.Indexes = indexes;
         }
 
         /// <summary>codon to code</summary>
@@ -39,7 +35,7 @@ namespace GeneticOptimize {
 
         /// <summary>変異</summary>
         public void Mutate(Random random) {
-            Code = random.NextBool() ? Math.Max(Min, Code - 1) : Math.Min(Max, Code + 1); 
+            Code = random.Next(Indexes); 
         }
 
         /// <summary>文字列化</summary>
@@ -49,7 +45,7 @@ namespace GeneticOptimize {
 
         /// <summary>クローン</summary>
         public object Clone() {
-            return new IntCodon(Code, Min, Max);
+            return new IntCodon(Code, Indexes);
         }
     }
 }

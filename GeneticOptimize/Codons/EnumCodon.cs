@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace GeneticOptimize {
 
@@ -10,31 +11,36 @@ namespace GeneticOptimize {
         public static int N { get; } = Values.Length;
 
         /// <summary>コード</summary>
-        public T Code { private set; get; }
+        public int Code { private set; get; }
 
         /// <summary>コンストラクタ</summary>
         public EnumCodon(Random random) { 
-            Code = random.Choice(Values);
+            Code = random.Next(N);
         }
 
         /// <summary>コンストラクタ</summary>
         public EnumCodon(T code) { 
+            this.Code = Array.IndexOf(Values, code);
+        }
+
+        /// <summary>コンストラクタ</summary>
+        private EnumCodon(int code) { 
             this.Code = code;
         }
 
         /// <summary>codon to code</summary>
         public static implicit operator T(EnumCodon<T> codon) {
-            return codon.Code;
+            return Values[codon.Code];
         }
 
         /// <summary>変異</summary>
         public void Mutate(Random random) {
-            Code = random.Choice(Values);
+            Code = random.Next(N);
         }
 
         /// <summary>文字列化</summary>
         public override string ToString() {
-            return Code.ToString();
+            return Values[Code].ToString();
         }
 
         /// <summary>クローン</summary>
