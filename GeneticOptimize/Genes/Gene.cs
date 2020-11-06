@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace GeneticOptimize {
-    public class Gene<Codon> where Codon : ICodon {
-        public Codon[] Codons { get; }
+
+    public abstract class Gene<Codon> where Codon : ICodon {
+        public Codon[] Codons { protected set; get; }
 
         public int Length => Codons.Length;
+
+        protected Gene() { }
 
         public Gene(Codon[] codons) {
             this.Codons = codons;
@@ -41,10 +42,10 @@ namespace GeneticOptimize {
 
             int length = gene1.Length;
 
-            bool[] bs = random.NextBools(length).ToArray();
-
-            for(int i = 0; i < length; i++) { 
-                Codons[i] = bs[i] ? gene1[i] : gene2[i];
+            int i = 0;
+            foreach(bool b in random.NextBools(length)) { 
+                Codons[i] = b ? gene1[i] : gene2[i];
+                i++;
             }
         }
 

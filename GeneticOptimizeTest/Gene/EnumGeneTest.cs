@@ -43,7 +43,9 @@ namespace GeneticOptimizeTest {
             Console.WriteLine(gene1);
             Console.WriteLine(gene2);
 
-            EnumGene<Color> gene_cross = EnumGene<Color>.Crossover(random, gene1, gene2);
+            EnumGene<Color> gene_cross = new EnumGene<Color>(random, 10);
+            
+            gene_cross.Crossover(random, gene1, gene2);
 
             Console.WriteLine(gene_cross);
         }

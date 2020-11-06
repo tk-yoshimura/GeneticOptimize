@@ -39,7 +39,9 @@ namespace GeneticOptimizeTest {
             Console.WriteLine(gene1);
             Console.WriteLine(gene2);
 
-            IntGene gene_cross = IntGene.Crossover(random, gene1, gene2);
+            IntGene gene_cross = new IntGene(random, 10, 2, 5);
+            
+            gene_cross.Crossover(random, gene1, gene2);
 
             Console.WriteLine(gene_cross);
         }
