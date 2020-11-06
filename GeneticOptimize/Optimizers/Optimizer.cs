@@ -38,7 +38,9 @@ namespace GeneticOptimize {
 
         public abstract long Evaluate(Gene<Codon> gene);
 
-        public abstract bool IsValid(Gene<Codon> gene);
+        public virtual bool IsValid(Gene<Codon> gene) {
+            return true;
+        }
 
         public void Initialize(Random random) {
             int i = 0;

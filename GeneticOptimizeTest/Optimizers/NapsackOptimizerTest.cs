@@ -11,7 +11,7 @@ namespace GeneticOptimizeTest {
 
         [TestMethod]
         public void OptimizeTest() {
-            const int items = 20, generations = 10;
+            const int items = 20, generations = 50;
             const long max_weight = 40;
 
             int[] values = new int[items] { 10, 8, 6, 5, 6, 7, 4, 20, 5, 6, 3, 7, 8, 9, 2, 15, 20, 20, 2, 6 };
