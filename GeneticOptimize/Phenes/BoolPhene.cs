@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GeneticOptimize {
+﻿namespace GeneticOptimize {
     public class BoolPhene : IPhene<BoolCodon> {
         public int TrueEffect { private set; get; }
 

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeneticOptimize {
     public class State<Phene, Codon> where Phene : IPhene<Codon> where Codon : ICodon {

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeneticOptimize {
     public class EnumPhene<T> : IPhene<EnumCodon<T>> where T : Enum {

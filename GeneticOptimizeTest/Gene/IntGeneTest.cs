@@ -11,7 +11,7 @@ namespace GeneticOptimizeTest {
         public void CreateTest() {
             Random random = new Random();
 
-            IntGene gene = new IntGene(random, 10, 2, 5);
+            IntGene gene = new IntGene(random, 10, 5);
 
             Console.WriteLine(gene);
         }
@@ -20,7 +20,7 @@ namespace GeneticOptimizeTest {
         public void MutateTest() {
             Random random = new Random();
 
-            IntGene gene = new IntGene(random, 10, 2, 5);
+            IntGene gene = new IntGene(random, 10, 5);
 
             Console.WriteLine(gene);
 
@@ -33,13 +33,13 @@ namespace GeneticOptimizeTest {
         public void CrossoverTest() {
             Random random = new Random();
 
-            IntGene gene1 = new IntGene(random, 10, 2, 5);
-            IntGene gene2 = new IntGene(random, 10, 2, 5);
+            IntGene gene1 = new IntGene(random, 10, 5);
+            IntGene gene2 = new IntGene(random, 10, 5);
 
             Console.WriteLine(gene1);
             Console.WriteLine(gene2);
 
-            IntGene gene_cross = new IntGene(random, 10, 2, 5);
+            IntGene gene_cross = new IntGene(random, 10, 5);
             
             gene_cross.Crossover(random, gene1, gene2);
 

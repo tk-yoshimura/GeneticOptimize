@@ -11,7 +11,7 @@ namespace GeneticOptimizeTest {
         public void CreateTest() {
             Random random = new Random();
 
-            var codon = new IntCodon(random, 2, 5);
+            var codon = new IntCodon(random, 5);
 
             Assert.IsTrue(2 <= codon && codon <= 5);
         }
@@ -20,7 +20,7 @@ namespace GeneticOptimizeTest {
         public void MutateTest() {
             Random random = new Random();
 
-            var codon = new IntCodon(random, 2, 5);
+            var codon = new IntCodon(random, 5);
 
             Console.WriteLine(codon);
 
