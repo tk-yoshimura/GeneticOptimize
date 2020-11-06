@@ -8,7 +8,7 @@ namespace GeneticOptimize {
         public NapsackOptimizer(int items, int[] values, int[] weights, long max_weight, int genes = 1000, int gene_saves = 20, double mutate_prob = 0.05)
             : base(items, genes, gene_saves, mutate_prob) {
 
-            if (items < 0 || items != values.Length || items != weights.Length) {
+            if (items != values.Length || items != weights.Length) {
                 throw new ArgumentException(nameof(items));
             }
 

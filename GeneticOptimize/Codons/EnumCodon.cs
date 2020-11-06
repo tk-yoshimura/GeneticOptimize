@@ -13,17 +13,17 @@ namespace GeneticOptimize {
         public int Code { private set; get; }
 
         /// <summary>コンストラクタ</summary>
-        public EnumCodon(Random random) { 
+        public EnumCodon(Random random) {
             Code = random.Next(N);
         }
 
         /// <summary>コンストラクタ</summary>
-        public EnumCodon(T code) { 
+        public EnumCodon(T code) {
             this.Code = Array.IndexOf(Values, code);
         }
 
         /// <summary>コンストラクタ</summary>
-        private EnumCodon(int code) { 
+        private EnumCodon(int code) {
             this.Code = code;
         }
 

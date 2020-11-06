@@ -8,7 +8,7 @@ namespace GeneticOptimize {
             if (effects.Length != EnumCodon<T>.N) {
                 throw new ArgumentException(nameof(effects));
             }
-            
+
             this.Effects = (int[])effects.Clone();
         }
 

@@ -13,7 +13,7 @@ namespace GeneticOptimize {
             this.Codons = codons;
         }
 
-        internal Gene(Gene<Codon> gene) { 
+        internal Gene(Gene<Codon> gene) {
             this.Codons = gene.Codons;
         }
 
@@ -26,23 +26,23 @@ namespace GeneticOptimize {
             }
         }
 
-        public void Mutate(Random random, double mutate_rate = 0.1) { 
-            for(int i = 0; i < Length; i++) { 
-                if(random.NextBool(mutate_rate)) { 
+        public void Mutate(Random random, double mutate_rate = 0.1) {
+            for (int i = 0; i < Length; i++) {
+                if (random.NextBool(mutate_rate)) {
                     Codons[i].Mutate(random);
                 }
             }
         }
 
-        public void Crossover(Random random, Gene<Codon> gene1, Gene<Codon> gene2) { 
-            if(gene1.Length != gene2.Length) { 
+        public void Crossover(Random random, Gene<Codon> gene1, Gene<Codon> gene2) {
+            if (gene1.Length != gene2.Length) {
                 throw new ArgumentException("Length");
             }
 
             int length = gene1.Length;
 
             int i = 0;
-            foreach(bool b in random.NextBools(length)) { 
+            foreach (bool b in random.NextBools(length)) {
                 Codons[i] = b ? gene1[i] : gene2[i];
                 i++;
             }

@@ -14,13 +14,13 @@ namespace GeneticOptimize {
         /// <summary>コンストラクタ</summary>
         public IntCodon(Random random, int indexes)
             : this(random.Next(indexes), indexes) { }
-    
+
         /// <summary>コンストラクタ</summary>
         public IntCodon(int code, int indexes) {
-            if (indexes < 1) { 
+            if (indexes < 1) {
                 throw new ArgumentException(nameof(indexes));
             }
-            if(code >= indexes) { 
+            if (code >= indexes) {
                 throw new ArgumentException(nameof(code));
             }
 
@@ -35,7 +35,7 @@ namespace GeneticOptimize {
 
         /// <summary>変異</summary>
         public void Mutate(Random random) {
-            Code = random.Next(Indexes); 
+            Code = random.Next(Indexes);
         }
 
         /// <summary>文字列化</summary>

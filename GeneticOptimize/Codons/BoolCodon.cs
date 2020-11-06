@@ -9,12 +9,12 @@ namespace GeneticOptimize {
         public bool Code { private set; get; }
 
         /// <summary>コンストラクタ</summary>
-        public BoolCodon(Random random) { 
+        public BoolCodon(Random random) {
             this.Code = random.NextBool();
         }
-    
+
         /// <summary>コンストラクタ</summary>
-        public BoolCodon(bool code) { 
+        public BoolCodon(bool code) {
             this.Code = code;
         }
 

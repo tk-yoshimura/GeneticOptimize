@@ -15,10 +15,10 @@ namespace GeneticOptimize {
             random.NextBytes(bs);
 
             int k = 0;
-            foreach(byte b in bs) {
+            foreach (byte b in bs) {
                 uint v = b;
 
-                for(int j = 0; j < 8 && k < length; j++, k++) { 
+                for (int j = 0; j < 8 && k < length; j++, k++) {
                     yield return (v & 1) == 1;
                     v >>= 1;
                 }

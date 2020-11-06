@@ -15,7 +15,7 @@ namespace GeneticOptimize {
             if (items < 1) {
                 throw new ArgumentException(nameof(items));
             }
-            if (genes < gene_saves || genes < 1 || gene_saves < 1) { 
+            if (genes < gene_saves || genes < 1 || gene_saves < 1) {
                 throw new ArgumentException($"{nameof(genes)},{nameof(gene_saves)}");
             }
             if (!(mutate_prob > 0) || mutate_prob > 1) {
