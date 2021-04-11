@@ -1,5 +1,5 @@
-using GeneticOptimize;
 
+using GeneticOptimize;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System;
@@ -7,15 +7,15 @@ using System;
 namespace GeneticOptimizeTest {
     [TestClass]
     public class EnumCodonTest {
-        enum Color { 
+        enum Color {
             Red, Green, Blue
         }
 
         [TestMethod]
         public void CreateTest() {
-            Random random = new Random();
+            Random random = new();
 
-            for(int i = 0; i < 10; i++) { 
+            for (int i = 0; i < 10; i++) {
                 var codon = new EnumCodon<Color>(random);
 
                 Console.WriteLine(codon);
@@ -24,13 +24,13 @@ namespace GeneticOptimizeTest {
 
         [TestMethod]
         public void MutateTest() {
-            Random random = new Random();
+            Random random = new();
 
             var codon = new EnumCodon<Color>(random);
 
             Console.WriteLine(codon);
 
-            for(int i = 0; i < 10; i++) { 
+            for (int i = 0; i < 10; i++) {
                 codon.Mutate(random);
                 Console.WriteLine(codon);
             }

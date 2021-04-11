@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Reference Include="GeneticOptimize">
-      <HintPath>..\GeneticOptimize\bin\Debug\netcoreapp3.1\GeneticOptimize.dll</HintPath>
+      <HintPath>..\GeneticOptimize\bin\Debug\net5.0\GeneticOptimize.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -2,7 +2,7 @@
  Genetic algorithm implements
 
 ## Requirement
-.NET Core 3.1
+.NET 5.0
 
 ## Install
 
